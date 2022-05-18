@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import './hojas-de-estilo/Boton.css';
+import gallardo from "./img/gallardo.png";
+import Boton from './componentes/Boton';
+import Contador from './componentes/Contador';
+import './hojas-de-estilo/contador.css'
+import { useState, usestate } from "react"
 
-function App() {
+
+function App(){
+  const [numClics, setNumClics] = useState(0);
+  const manejarClic = () =>{
+    setNumClics(numClics + 1);
+  }
+
+  const reiniciarContador = () => {
+    setNumClics(0);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="logo-contenedor">
+      <img 
+        className='logo'
+        src={gallardo}
+        alt="Logo de Gallardo"/>
+        <a target={"_blank"} rel="noreferrer" href='https://devgallardo.netlify.app/'>Gallardo Frontend Developer</a>
+        <Contador className="contador" numClics={numClics} />
+    </div>
+    <div className='contenedor-principal'>
+      <Boton
+        texto="Clic"
+        esBotonDeClic={true}
+        manejarClic={manejarClic}/>
+        <Boton
+        texto="Reiniciar"
+        esBotondeClic={false}
+        manejarClic={reiniciarContador}/>
+    </div>
     </div>
   );
 }
