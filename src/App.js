@@ -4,7 +4,7 @@ import gallardo from "./img/gallardo.png";
 import Boton from './componentes/Boton';
 import Contador from './componentes/Contador';
 import './hojas-de-estilo/contador.css'
-import { useState, usestate } from "react"
+import { useState } from "react"
 
 
 function App(){
